@@ -1,8 +1,8 @@
 // @ts-check
 
+import fs from "node:fs";
 import esbuild from "esbuild";
 import { autoEnv } from "esbuild-plugin-auto-env";
-import fs from "fs";
 
 const result = await esbuild.build({
 	entryPoints: ["src/extension.ts"],

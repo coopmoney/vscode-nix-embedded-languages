@@ -67,7 +67,7 @@ configData = ''
 ## Built-In Languages
 
 | Language | Identifiers |
-| ---------- | ----------------------- |
+| ---------- | --------------------- |
 | Shell | `shell`, `bash`, `sh` |
 | Python | `python`, `py` |
 | JavaScript | `javascript`, `js` |
@@ -86,7 +86,7 @@ configData = ''
 ## Extension Settings
 
 | Name | Description |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `nix-embedded-languages.include` | Add custom languages. Key is the identifier (supports regex), value is either the TextMate scope name or an object with `name` and `scopeName` (required) properties. |
 
 ### Example Configuration

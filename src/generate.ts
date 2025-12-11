@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import { LANGUAGES } from "./constants";
 import { InjectionGrammar, type LanguagesMap } from "./injection-grammar";
 
@@ -41,7 +41,7 @@ export const generateFiles = (
 };
 
 const writeJsonFileIfChanged = (filePath: string, data: unknown): boolean => {
-	const next = JSON.stringify(data, null, 2) + "\n";
+	const next = `${JSON.stringify(data, null, 2)}\n`;
 
 	if (fs.existsSync(filePath)) {
 		const current = fs.readFileSync(filePath, { encoding: "utf8" });

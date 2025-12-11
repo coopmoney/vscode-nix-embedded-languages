@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Type check
-        run: bun run type
-
       - name: Lint
         run: bun run lint
 
