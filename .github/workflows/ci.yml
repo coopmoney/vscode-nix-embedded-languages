@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - "v*"
+  pull_request:
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Type check
+        run: bun run type
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Format check
+        run: bun run format
+
+      - name: Build
+        run: bun run build
+
+  release:
+    name: Release
+    needs: check
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build
+        run: bun run build
+
+      - name: Package extension
+        run: bun run package
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          gh release create "v${VERSION}" \
+            --generate-notes \
+            "nix-embedded-languages-${VERSION}.vsix"
+
+      - name: Publish to VS Code Marketplace
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: bun run publish
+
+      - name: Publish to Open VSX Registry
+        uses: HaaLeo/publish-vscode-extension@v2
+        id: publishToOpenVSX
+        with:
+          pat: ${{ secrets.OPEN_VSX_TOKEN }}

@@ -1,0 +1,83 @@
+{
+	"name": "nix-embedded-languages",
+	"version": "1.0.0",
+	"displayName": "Nix Embedded Languages",
+	"description": "Syntax highlighting for embedded languages in Nix multi-line strings.",
+	"icon": "images/icon.png",
+	"publisher": "cooppmoney",
+	"author": {
+		"name": "Cooper Maruyama",
+		"github": "@coopmoney",
+		"X": "_cooperton"
+	},
+	"homepage": "https://github.com/coopmoney/vscode-nix-embedded-languages#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/coopmoney/vscode-nix-embedded-languages.git"
+	},
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.74.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "dist/extension.js",
+	"contributes": {
+		"grammars": [
+			{
+				"scopeName": "source.nix.injection",
+				"path": "./syntaxes/source.nix.injection.tmLanguage.json",
+				"injectTo": [
+					"source.nix"
+				]
+			},
+			{
+				"scopeName": "source.nix.before-string.injection",
+				"path": "./syntaxes/source.nix.before-string.injection.tmLanguage.json",
+				"injectTo": [
+					"source.nix"
+				]
+			}
+		],
+		"configuration": {
+			"title": "Nix Embedded Languages",
+			"properties": {
+				"nix-embedded-languages.include": {
+					"type": "object",
+					"default": {},
+					"description": "An object where the key defines the language identifier with regex and the value specifies the language TextMate scope name. The value can instead be an object with properties `name` and `scopeName` (required)."
+				}
+			}
+		}
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.9.0",
+		"@types/bun": "latest",
+		"@types/node": "~16.11",
+		"@types/vscode": "1.74.0",
+		"@vscode/vsce": "^2.29.0",
+		"esbuild": "^0.23.1",
+		"esbuild-plugin-auto-env": "^0.2.1",
+		"eslint": "^9.9.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"globals": "^15.9.0",
+		"prettier": "^3.3.3",
+		"typescript": "^5.5.4",
+		"typescript-eslint": "^8.3.0"
+	},
+	"scripts": {
+		"build": "bun build.mjs",
+		"generate": "bun src/generate.ts",
+		"lint": "eslint",
+		"format": "prettier . --check",
+		"type": "tsc --noEmit",
+		"package": "vsce package",
+		"release": "gh release create v$npm_package_version --generate-notes nix-embedded-languages-$npm_package_version.vsix",
+		"publish": "vsce publish"
+	}
+}
