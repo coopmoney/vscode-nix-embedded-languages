@@ -73,8 +73,8 @@
 	"scripts": {
 		"build": "bun build.mjs",
 		"generate": "bun src/generate.ts",
-		"lint": "eslint",
-		"format": "prettier . --check",
+		"lint": "biome check",
+		"format": "biome format",
 		"type": "tsc --noEmit",
 		"package": "vsce package",
 		"release": "gh release create v$npm_package_version --generate-notes nix-embedded-languages-$npm_package_version.vsix",
