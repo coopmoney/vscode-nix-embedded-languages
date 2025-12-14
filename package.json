@@ -4,7 +4,7 @@
   "displayName": "Nix Embedded Languages",
   "description": "Syntax highlighting for embedded languages in Nix multi-line strings.",
   "icon": "images/icon.png",
-  "publisher": "coopmoney",
+  "publisher": "coopermaruyama",
   "author": {
     "name": "Cooper Maruyama",
     "github": "@coopmoney",
