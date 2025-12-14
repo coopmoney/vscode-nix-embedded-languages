@@ -3,7 +3,7 @@
 # Nix Embedded Languages
 
 ![GitHub License](https://img.shields.io/github/license/coopmoney/vscode-nix-embedded-languages?style=for-the-badge)
-![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/cooppmoney.nix-embedded-languages?style=for-the-badge)
+<!-- ![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/cooppmoney.nix-embedded-languages?style=for-the-badge) -->
 
 </div>
 
@@ -106,9 +106,6 @@ configData = ''
 
 - The [Nix IDE](https://marketplace.visualstudio.com/items?itemName=jnoortheen.nix-ide) extension (or another extension providing `source.nix` grammar)
 
-## Release Notes
-
-See [CHANGELOG](CHANGELOG.md)
 
 ## Contributing
 
