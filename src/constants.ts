@@ -10,21 +10,21 @@ export const VERSION_STATE = "version";
  * Values are either a scope name string or an object with scopeName.
  */
 export const LANGUAGES: Record<
-	string,
-	string | { scopeName: string; name?: string }
+  string,
+  string | { scopeName: string; name?: string }
 > = {
-	"shell|bash|sh": { name: "shellscript", scopeName: "source.shell" },
-	"python|py": { name: "python", scopeName: "source.python" },
-	"javascript|js": { name: "javascript", scopeName: "source.js" },
-	"typescript|ts": { name: "typescript", scopeName: "source.ts" },
-	json: "source.json",
-	yaml: "source.yaml",
-	sql: "source.sql",
-	lua: "source.lua",
-	ruby: "source.ruby",
-	rust: "source.rust",
-	go: "source.go",
-	html: "text.html.derivative",
-	css: "source.css",
-	nix: "source.nix",
+  "shell|bash|sh": { name: "shellscript", scopeName: "source.shell" },
+  "python|py": { name: "python", scopeName: "source.python" },
+  "javascript|js": { name: "javascript", scopeName: "source.js" },
+  "typescript|ts": { name: "typescript", scopeName: "source.ts" },
+  json: "source.json",
+  yaml: "source.yaml",
+  sql: "source.sql",
+  lua: "source.lua",
+  ruby: "source.ruby",
+  rust: "source.rust",
+  go: "source.go",
+  html: "text.html.derivative",
+  css: "source.css",
+  nix: "source.nix",
 };

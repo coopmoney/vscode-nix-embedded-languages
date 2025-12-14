@@ -6,15 +6,15 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-	eslint.configs.recommended,
-	...tseslint.configs.recommended,
-	{
-		ignores: ["dist/*"],
-	},
-	{
-		languageOptions: {
-			globals: globals.node,
-		},
-	},
-	eslintPluginPrettierRecommended, // Must be last
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    ignores: ["dist/*"],
+  },
+  {
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+  eslintPluginPrettierRecommended, // Must be last
 );
